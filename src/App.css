@@ -203,6 +203,7 @@ html {
     line-height: 1;
     left: -125px;
     top: 30px;
+    color: lightgray;
 }
 
 .b-popup .b-popup-content .errorEmail{
@@ -211,6 +212,8 @@ html {
     line-height: 1;
     left: -125px;
     top: 60px;
+    color: lightgray;
+
 }
 
 .b-popup .b-popup-content .errorPass{
@@ -219,6 +222,8 @@ html {
     line-height: 1;
     left: -125px;
     top: 95px;
+    color: lightgray;
+
 }
 
 .b-popup .b-popup-content .errorLastName{
@@ -227,6 +232,8 @@ html {
     line-height: 1;
     right: -125px;
     top: 25px;
+    color: lightgray;
+
 }
 
 .b-popup .b-popup-content .errorConfirmPass{
@@ -235,6 +242,8 @@ html {
     line-height: 1;
     right: -125px;
     top: 95px;
+    color: lightgray;
+
 }
 
 .b-popup .b-popup-content .errorBirthday{
@@ -243,10 +252,14 @@ html {
     line-height: 1;
     right: -125px;
     top: 60px;
+    color: lightgray;
+
 }
 
 .error-mesage {
     position: absolute;
     left: 20px;
     max-width: 250px;
+    color: lightgray;
+
 }
