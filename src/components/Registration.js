@@ -2,11 +2,8 @@
 import React from 'react';
 
 export default function Registration() {
-    let regBtn = document.querySelector('.reg-button');
-    let confirmBtn = document.querySelector('.confirm');
     let errors = document.getElementsByClassName('errors');
 
-    console.log(errors);
     function popupUpHide(elem) {
         let backPopup = document.querySelector('.b-popup');
         let target = elem.target;
@@ -171,7 +168,6 @@ export default function Registration() {
                     <input className="password" type="password" placeholder="PASSWORD"/>
                     <input className="password-confirm" type="password" placeholder="PASSWORD CONFIRMATION"/>
                 </form>
-                <span className="error-mesage"></span>
                 <button className="confirm" onClick={checkErrors}>CONFIRM</button>
             </div>
         </div>

@@ -9,7 +9,6 @@ export default function RenderList(props) {
     const [values, setValues] = useState();
     let list = document.getElementsByClassName('container-li');
     let arr = [];
-    console.log(list)
 
     let checkItem = (target) => {
         items.forEach(item => {
@@ -43,7 +42,6 @@ export default function RenderList(props) {
                 arr.push(checkedCheckBox[i]);
             }
         }
-        console.log(arr)
     };
 
     let showElement = () => {

@@ -44,10 +44,9 @@ html {
     background-repeat: no-repeat;
 }
 
-.underline {
-    background-repeat: repeat-x;
+.main .menu .sword-decoration {
+    text-decoration: underline;
 }
-
 
 .people:hover, .starships:hover, .planets:hover {
     background-image: url("images/sword.jpg");
@@ -79,7 +78,7 @@ html {
     font-size: 20px;
     margin-bottom: 10px;
     padding-left: 5px;
-    color: lightgray;
+    color: white;
     list-style-type: none;
     cursor: pointer;
 }
@@ -115,7 +114,7 @@ html {
     font-size: 30px;
     text-decoration: underline;
     margin-left: 10px;
-    color: rgb(25, 15, 25);
+    color: white;
 }
 
 .right-menu .description {
@@ -125,7 +124,7 @@ html {
 
 .right-menu .keys{
     display: inline-block;
-    color: lightgray;
+    color: white;
 
 }
 
@@ -133,7 +132,7 @@ html {
     display: inline-block;
     vertical-align: top;
     padding-left: 5px;
-    color: lightgray;
+    color: white;
 }
 
 .hidden {
