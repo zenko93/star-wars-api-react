@@ -8,11 +8,13 @@ export default function Menu() {
     let search = document.getElementsByClassName('search');
     let menu = document.getElementsByClassName('menu');
 
+
     let showElement = (element) => {
         element[0].classList.remove('hidden')
     };
 
-    let focusOnMenu = (target) => {
+
+    let selectUnderlineMenu = (target) => {
         console.log(target.classList);
         console.log(menu.length);
 
@@ -27,6 +29,7 @@ export default function Menu() {
 
     };
 
+
     let handleClick = (event) => {
         let target = event.target;
 
@@ -35,8 +38,9 @@ export default function Menu() {
         }
         setDataIn(target.getAttribute('data-name'));
         showElement(search);
-        focusOnMenu(target);
+        selectUnderlineMenu(target);
     };
+
 
     let searchListData = () => {
         let search = document.querySelector('.search');
@@ -51,6 +55,7 @@ export default function Menu() {
             !arrList[i].includes(valLow) ? list[i].hidden = true: list[i].hidden = false;
         }
     };
+
 
     let regButtonClick = (elem) => {
         let backPopup = document.getElementsByClassName('b-popup');

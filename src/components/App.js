@@ -1,10 +1,10 @@
 import React from 'react';
-import Menu from './Main';
+import Main from './Main';
 
 const App = () => {
     return (
       <div className = 'container'>
-          <Menu/>
+          <Main/>
       </div>
     )
 };

@@ -1,81 +1,72 @@
-import React,{useState} from 'react';
+import React, {useState, useReducer} from 'react';
 import useGetData from "./useGetData";
-import Description from "./Description";
+import RenderDescription from "./RenderDescription";
 
 
 export default function RenderList(props) {
     const items = useGetData(props.dataIn);
-    const [keys, setKeys] = useState();
-    const [values, setValues] = useState();
-    let list = document.getElementsByClassName('container-li');
-    let arr = [];
+    const [keys, setKeys] = useState([]);
+    const [values, setValues] = useState([]);
+    // const [arr, setArr] = useState([]);
 
-    let checkItem = (target) => {
-        items.forEach(item => {
-            if(target.getAttribute('data-name') === item.name || target.id === item.name){
-                setKeys(Object.keys(item));
-                setValues(Object.values(item));
-            }
-        });
-    };
 
-    let handleClick = (event) => {
-        let target = event.target;
 
-        if(!target.hasAttribute('data-name')) {
-            return;
+    let onChangeCheckBox = (elem) => {
+        let target = elem.target;
+        let item;
+
+        if (target.checked) {
+            // setArr(oldArr =>[...oldArr ,items.find((item) => item.name === target.id)]);
+            item = items.find((item) => item.name === target.id);
+            setKeys(oldKeys => [...oldKeys,Object.keys(item)]);
+            setValues(oldValues => [...oldValues,Object.values(item)]);
         }
-        checkItem(target)
-    };
-
-    let addDescription = () =>{
-        if(keys) {
-            return <Description keys={keys} values={values}/>
-        }
-    };
-
-    let saveCheckedbox = () => {
-        let checkedCheckBox = document.querySelectorAll('.checkbox');
-
-        for (let i = 0; i < checkedCheckBox.length; i++) {
-            if (checkedCheckBox[i].checked) {
-                arr.push(checkedCheckBox[i]);
-            }
+        else {
+            setValues( values.filter( () => {
+                let findArr = values.findIndex(item => target.id === item[0]);
+                values.splice(findArr, 1);
+                console.log(findArr)
+                return values
+            }));
+            setKeys( keys.filter( () => {
+                // let findArr = keys.findIndex(item => target.id === item[0]);
+                keys.pop();
+                console.log(keys)
+                return keys
+            }));
+            console.log(values)
         }
     };
+
+
 
     let showElement = () => {
-        let title = document.querySelector('.title')    ;
-
+        let title = document.querySelector('.title');
         title.classList.remove('hidden');
     };
 
-    let addDescrWithCheckBox = (elem) => {
-        let target = elem.target;
-
-        if(target.checked){
-           checkItem(target);
-            arr.map(() => addDescription());
-        }
-    };
 
 
     let itemsList = items.map(item => (
-        <div className='container-li' onClick={showElement}>
-            <input type="checkbox" className='checkbox' onChange={addDescrWithCheckBox} id={item.name}/>
-            <li data-name = {item.name} className='li' onClick={handleClick} key={item.name}>{item.name}</li>
+        <div className='container-li' onClick={showElement} key={item.name}>
+            <label className='li'>
+                <li key={item.name} className='li' data-name={item.name}>
+                    <input type="checkbox" id={item.name} className='checkbox' onChange={onChangeCheckBox}/>
+                    <span className='li'>{item.name}</span>
+                </li>
+            </label>
         </div>
     ));
 
-    return(
+
+    return (
         <div className='content'>
             <div className='left-menu'>
                 <ul>{itemsList}</ul>
             </div>
             <div className='right-menu'>
                 <div className='title hidden'>DESCRIPTION</div>
-                {addDescription()}
-                {saveCheckedbox()}
+                <RenderDescription keys={keys} values={values}/>
             </div>
         </div>
     )
