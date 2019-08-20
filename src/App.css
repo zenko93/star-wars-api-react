@@ -56,14 +56,21 @@ html {
 .main .content {
     display: flex;
     justify-content: left;
+    height: 800px;
+}
+.main .reg-button {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .main .search {
+    display: block;
     margin-left: 10px;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.main .left-menu {
+.main .list {
     display: inline-block;
     width: 200px;
     max-height: 340px;
@@ -74,6 +81,7 @@ html {
 }
 
 .left-menu li {
+    display: block;
     font-size: 20px;
     margin-bottom: 10px;
     padding-left: 5px;
@@ -96,12 +104,6 @@ html {
     background-color: black;
 }
 
-.reg-button {
-    display: block;
-    margin-top: 15px;
-    margin-left: 10px;
-    cursor: pointer;
-}
 
 .right-menu {
     display: flex;
