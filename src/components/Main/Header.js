@@ -4,16 +4,13 @@ export default function Header(props) {
 
     const search = document.getElementsByClassName('search');
     const menu = document.getElementsByClassName('menu');
+    let targetName;
 
-    let showElement = (element) => {
+    const showElement = (element) => {
         element[0].classList.remove('hidden')
     };
 
-
-    let selectUnderlineMenu = (target) => {
-        console.log(target.classList);
-        console.log(menu.length);
-
+    const selectUnderlineMenu = (target) => {
         for (let i = 0; i < menu.length; i++) {
             if (!target.classList.contains('sword-decoration')) {
                 menu[i].classList.remove('sword-decoration')
@@ -21,28 +18,26 @@ export default function Header(props) {
         }
         if (!target.classList.contains('sword-decoration')) {
             target.classList.add('sword-decoration');
-        }
 
+        }
     };
 
-    let handleClick = (event) => {
-        let target = event.target;
+    const senDataToParent = () => props.getDataFromChild(targetName);
 
-        if (!target.hasAttribute('data-name')) {
+    const handleClick = (event) => {
+        const target = event.target;
+        targetName = target.getAttribute('data-name');
+
+        if (!targetName) {
             return;
         }
         showElement(search);
         selectUnderlineMenu(target);
+        senDataToParent()
     };
 
-    const senDataToParent = (event) => {props.getDataFromChild(event.target.getAttribute('data-name'))};
-
     return (
-        <header  className='menu'
-                 onClick={(event) => {
-                    handleClick(event);
-                    senDataToParent(event);
-        }}>
+        <header  className='menu' onClick={(event) => handleClick(event)}>
             <div className='menu people' data-name='people'>People</div>
             <div className='menu starships' data-name='starships'>Starships</div>
             <div className='menu planets' data-name='planets'>Planets</div>

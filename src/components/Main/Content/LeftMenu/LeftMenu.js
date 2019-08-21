@@ -1,6 +1,6 @@
 import React from "react";
 import RenderList from "./RenderList";
-import Registration from "./Registration";
+import Registration from "./Registration/Registration";
 import SearchElementList from "./SearchElementList";
 
 export default function LeftMenu (props) {
@@ -13,6 +13,5 @@ export default function LeftMenu (props) {
                 <RenderList dataIn={props.dataIn} onChangeCheckBox={props.onChangeCheckBox}/>
             </div>
         </div>
-
     );
 }

@@ -23,7 +23,6 @@ export default function RenderList (props) {
                     </label>
                 </div>
             ))}
-            <div> </div>
         </ul>
     );
 }

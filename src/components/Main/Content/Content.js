@@ -17,21 +17,15 @@ export default function Content(props) {
 
         if (target.checked) {
             item = items.find((item) => item.name === target.id);
-            setKeys(oldKeys => [...oldKeys,Object.keys(item)]);
-            setValues(oldValues => [...oldValues,Object.values(item)]);
+            if(item){
+                setKeys(oldKeys => [...oldKeys,Object.keys(item)]);
+                setValues(oldValues => [...oldValues,Object.values(item)]);
+            }
         }
         else {
-            setValues( values.filter( () => {
-                let findArr = values.findIndex(item => target.id === item[0]);
-                values.splice(findArr, 1);
-                return values
-            }));
-            setKeys( keys.filter( () => {
-                keys.pop();
-                return keys
-            }));
+            setValues( values.filter(item => target.id !== item[0]));
+            setKeys(keys.filter((item, index) => index !== 0 ));
         }
-        console.log(item)
     };
 
     return (
